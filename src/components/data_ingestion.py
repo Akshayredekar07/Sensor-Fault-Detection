@@ -9,7 +9,7 @@ from src.exception import CustomException
 from src.logger import logging
 from src.utils.main_utils import MainUtils
 from dataclasses import dataclass
-
+passward = os.getenv("MONGO_DB_URL")
 
 
 
@@ -28,7 +28,9 @@ class DataIngestion:
 
     def export_collection_as_dataframe(self,collection_name, db_name):
         try:
-            mongo_client = MongoClient(MONGO_DB_URL)
+            uri = f"mongodb+srv://akshayredekar4441:{passward}@cluster0.tbm5wnd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+            mongo_client = MongoClient(uri)
 
             collection = mongo_client[db_name][collection_name]
 

@@ -1,8 +1,10 @@
 import pandas as pd
 import json
 from pymongo.mongo_client import MongoClient
+import os
+passward = os.getenv("MONGO_DB_URL")
 
-uri = "mongodb+srv://akshayredekar4441:PASSWARD@cluster0.tbm5wnd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri = f"mongodb+srv://akshayredekar4441:{passward}@cluster0.tbm5wnd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # Create a new client and connect to the server
 client = MongoClient(uri)
